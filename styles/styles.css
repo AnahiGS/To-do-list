@@ -1,0 +1,17 @@
+body{
+  background-image: url('./photo-1563089145-599997674d42.jfif');
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
+  background-color: rgb(25, 27, 39);
+}
+
+
+
+.container-fluid-small{
+  /* margin: 5px 15rem 0 15rem;
+  padding: 20px; */
+  
+  background: rgba(114, 111, 133, 0.4);
+  box-shadow: 2px 5px 5px rgba(0, 0, 0);
+
+}
