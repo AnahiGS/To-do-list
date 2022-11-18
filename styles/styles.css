@@ -1,6 +1,6 @@
 body{
   background-image: url('./photo-1563089145-599997674d42.jfif');
-  background-size: 100% 80%;
+  background-size: 100% 17rem;
   background-repeat: no-repeat;
   background-color: rgb(25, 27, 39);
 }
@@ -10,8 +10,44 @@ body{
 .container-fluid-small{
   /* margin: 5px 15rem 0 15rem;
   padding: 20px; */
-  
+  width: 500px;
   background: rgba(114, 111, 133, 0.4);
   box-shadow: 2px 5px 5px rgba(0, 0, 0);
+  
+}
+
+.seccion-tarea h3 {
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.seccion-tarea li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(157, 103, 219, 0.3);
+  border-radius: 15px;
+  padding: 10px;
+  color: var(--white);
+  margin-right: 25px;
 
 }
+.seccion-tarea i {
+  font-size: 25px;
+}
+
+.seccion-tarea > ul p {
+  font-size: 1.2rem;
+  padding-top: 8px;
+}
+
+
+.seccion-tarea i:hover {
+  color: var(--blue-light);
+  cursor: pointer;
+}
+
+.line-through{
+  text-decoration: line-through;
+  color : var(--blue-light);
+} 

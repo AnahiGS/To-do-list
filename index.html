@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
@@ -16,15 +17,20 @@
           </div>
       </div>
       
-          <div class="container-fluid-small p-4 my-5 mx-auto d-flex justify-content-center" style="width: 500px;">
+          <div class="container-fluid-small p-4 my-5 mx-auto d-flex justify-content-center" >
               <div class="row">
                   <div class="input-group mb-3" id="container-task">               
-                    <input type="text" class="form-control" placeholder="Write a task" >
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
+                    <input type="text" class="form-control" id="task"placeholder="Write a task" >
+                    <button class="btn btn-outline-light" type="button" id="button-addon2" onclick="">Add</button>
                   </div>
                   <div class="seccion-tarea text-white">
                     <h3>List of tasks to do </h3>
                     <ul id="lista">
+                      <!-- <li>
+                        <i class="far fa-circle co" data="realizado" id="0"></i>
+                        <p class="text"> Task 1 </p>
+                        <i class="fas fa-trash de" data="eliminado" id="0"></i>                       
+                      </li> -->
                     </ul>
                   </div>
               </div>
