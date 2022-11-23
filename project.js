@@ -4,8 +4,8 @@ const list =document.querySelector('#lista')
 const complete = 'fa-check-circle'
 const incomplete = 'fa-circle'
 const lineComplete = 'line-through'
-let id = 0
-let listaTareas = []
+let id 
+let listaTareas 
 
 
 // document.addEventListener("DOMContentLoaded", addTask);
