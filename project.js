@@ -16,15 +16,30 @@ function addTask(tarea, id, completed, removed){
   const line = completed ? lineComplete : '' //si el estado está completado entonces se va a subrayar, sino no va a pasar nada
   
     const elemento =`<li>
-    <i class="far ${COMPLETED}" data="completed" id=${id}></i>
+    <i class="far ${COMPLETED}" data='completed' id=${id}></i>
     <p class="text ${line}"> ${tarea} </p>
-    <i class="fas fa-trash de" data="remove" id=${id} onClick=''></i>                       
+    <i class="fas fa-trash de" data='remove' id=${id} onClick=''></i>                       
   </li> `
     
 
     list.insertAdjacentHTML("beforeend", elemento)
  ;
 }
+
+function tareaRealizada(element) {
+  element.classList.toggle(complete)
+  element.classList.toggle(incomplete)
+  element.parentNode.querySelector('.text').classList.toggle(lineComplete)
+}
+
+function tareaEliminada(element){
+  // console.log(element.parentNode)
+  // console.log(element.parentNode.parentNode)
+   element.parentNode.parentNode.removeChild(element.parentNode)
+} 
+
+
+
 
 btn.addEventListener("click", () =>{
   const tarea =task.value
@@ -35,16 +50,31 @@ btn.addEventListener("click", () =>{
   id++ //ahora el id va a vale 1 e irá sumando numeros con cada llamada 
 })
 
-btn.addEventListener('keyup', (event) =>{
-  const tarea = task.value
-  if(event.key=='Enter'){
-    addTask(tarea, id, false, false)
-  }
+btn.addEventListener('keyup', function(event){
+  
+  if(event.key=='Enter' ){
+    const tarea = task.value
+    if (tarea){
+      addTask(tarea, id, false, false) 
+    }
   task.value = ''
   id++
+  }
 })
 
 list.addEventListener('click', (event)=>{
-
+  const element = event.target //fragmento de codigo que incluye el ícono
+  const elementData = element.attributes.data.value
+  console.log(elementData)
+  
+  if(elementData == 'completed') {
+    tareaRealizada(element)
+  }
+  else if(elementData == 'remove') {
+      tareaEliminada(element)
+      
+  }
+  
+  
 })
 
