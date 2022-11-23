@@ -5,9 +5,10 @@ const complete = 'fa-check-circle'
 const incomplete = 'fa-circle'
 const lineComplete = 'line-through'
 let id = 0
+let listaTareas = []
 
 
-document.addEventListener("DOMContentLoaded", addTask);
+// document.addEventListener("DOMContentLoaded", addTask);
 
 function addTask(tarea, id, completed, removed){
   if(removed){return} //si removed es cierto entonces todo el código que sigue no se va a ejecutar
@@ -44,23 +45,31 @@ function tareaEliminada(element){
 btn.addEventListener("click", () =>{
   const tarea =task.value
   if (tarea){
-    addTask(tarea, id, false, false) //cada vez que yo agrego una tarea el estado inicial será así, sin completar y sin eliminar
+    addTask(tarea, id, false, false)
+    listaTareas.push({
+      nombre:tarea,
+      id: id,
+      completed: false,
+      removed:false
+    }) //cada vez que yo agrego una tarea el estado inicial será así, sin completar y sin eliminar
   }
+  localStorage.setItem('TODO',JSON.stringify(listaTareas))
   task.value=''  //se resetea lo que se escribió en el input text del placeholder
   id++ //ahora el id va a vale 1 e irá sumando numeros con cada llamada 
+  
 })
 
-btn.addEventListener('keyup', function(event){
+// btn.addEventListener('keyup', function(event){
   
-  if(event.key=='Enter' ){
-    const tarea = task.value
-    if (tarea){
-      addTask(tarea, id, false, false) 
-    }
-  task.value = ''
-  id++
-  }
-})
+//   if(event.key=='Enter' ){
+//     const tarea = task.value
+//     if (tarea){
+//       addTask(tarea, id, false, false) 
+//     }
+//   task.value = ''
+//   id++
+//   }
+// })
 
 list.addEventListener('click', (event)=>{
   const element = event.target //fragmento de codigo que incluye el ícono
@@ -74,7 +83,25 @@ list.addEventListener('click', (event)=>{
       tareaEliminada(element)
       
   }
-  
+  localStorage.setItem('TODO',JSON.stringify(listaTareas))
   
 })
 
+
+let datos = localStorage.getItem('TODO')
+if(datos){
+    listaTareas= JSON.parse(datos)
+    console.log(listaTareas)
+    id = listaTareas.length
+    cargarLista(listaTareas)
+}else {
+    listaTareas = []
+    id = 0
+}
+
+
+function cargarLista(array) {
+    array.forEach(function(item){
+        addTask(item.nombre,item.id,item.completed,item.removed)
+    })
+}
